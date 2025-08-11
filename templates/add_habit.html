@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Add Habit{% endblock %}
+
+{% block content %}
+<h2>Add a New Habit</h2>
+<form action="{{ url_for('add_habit') }}" method="post">
+    <div class="mb-3">
+        <label for="habit_name" class="form-label">Habit Name</label>
+        <input type="text" class="form-control" id="habit_name" name="habit_name">
+    </div>
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Add Habit</button>
+</form>
+{% endblock %}

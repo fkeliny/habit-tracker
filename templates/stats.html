@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}Stats{% endblock %}
+
+{% block content %}
+<h2>Your Weekly Stats</h2>
+
+<!-- Hidden element with data -->
+<div id="stats-data" data-completions="{{ completions_per_day }}"></div>
+
+<canvas id="statsChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const dataElement = document.getElementById('stats-data');
+    const completionsData = dataElement.dataset.completions
+        .replace(/[\[\]]/g, '') // remove [ and ]
+        .split(',')             // split by comma
+        .map(num => parseInt(num.trim()));
+
+    const ctx = document.getElementById('statsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            datasets: [{
+                label: 'Habit Completions',
+                data: completionsData,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+</script>
+{% endblock %}

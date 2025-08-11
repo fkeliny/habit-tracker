@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Welcome - Habit Tracker{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Welcome to Habit Tracker</h1>
+    <p>Track your daily habits effortlessly and build a better routine.</p>
+    <a href="{{ url_for('login') }}" class="button login">Log In</a>
+    <a href="{{ url_for('register') }}" class="button register">Register</a>
+</div>
+{% endblock %}

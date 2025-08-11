@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #2980b9;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 10px;
+    background: #ddd;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: auto;
+}
+
+.container {
+    max-width: 600px;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Buttons as links */
+a.button {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.15);
+    user-select: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: white;
+    cursor: pointer;
+    /* Added subtle transform on hover */
+}
+
+a.button:hover,
+a.button:focus {
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Login button */
+a.login {
+    background-color: #3498db;
+}
+
+a.login:hover,
+a.login:focus {
+    background-color: #2980b9;
+}
+
+/* Register button */
+a.register {
+    background-color: #2ecc71;
+}
+
+a.register:hover,
+a.register:focus {
+    background-color: #27ae60;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 25px;
+        max-width: 90%;
+    }
+
+    a.button {
+        margin: 10px 5px;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+.container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}

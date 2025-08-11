@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}My Habits{% endblock %}
+
+{% block content %}
+<h2>My Habits</h2>
+
+<a href="{{ url_for('add_habit') }}" class="btn btn-primary mb-3">Add New Habit</a>
+
+<h3>Active Habits</h3>
+<ul id="active-habits-list" class="list-group mb-4">
+  {% for habit in active_habits %}
+    <li id="habit-{{ habit.id }}" class="list-group-item d-flex justify-content-between align-items-center">
+      {{ habit.name }}
+      <button onclick="completeHabit('{{ habit.id }}')" class="btn btn-sm btn-success">Mark Complete</button>
+  {% else %}
+    <li class="list-group-item">You have no active habits.</li>
+  {% endfor %}
+</ul>
+
+<h3>Completed Today</h3>
+<ul id="completed-habits-list" class="list-group">
+  {% for habit in completed_habits %}
+    <li id="completed-{{ habit.id }}" class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+      {{ habit.name }} <span class="badge bg-success rounded-pill">Completed</span>
+    </li>
+  {% else %}
+    <li class="list-group-item">No habits completed today.</li>
+  {% endfor %}
+</ul>
+
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+{% endblock %}
