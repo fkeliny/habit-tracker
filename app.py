@@ -61,7 +61,7 @@ def register():
         password_hash = generate_password_hash(password)
         db.execute("INSERT INTO users (username, password_hash) VALUES (?, ?)", username, password_hash)
         
-        return redirect("/login.html")  # only after successful registration
+        return redirect("/login")  # only after successful registration
     
     # GET request → show the registration form
     return render_template("register.html")
